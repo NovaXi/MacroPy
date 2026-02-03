@@ -95,7 +95,6 @@ def release_all_keys():
     subprocess.run(["ydotool", "key", "29:0", "47:0", "42:0", "105:0", "14:0", "46:0", "106:0", ], env=env) 
 
 def get_last_text():
-    logger.debug("Running get_last_text (select-copy-delete method)")
     env = {"YDOTOOL_SOCKET": os.path.expanduser("~/.ydotool_socket")}
 
     deleted = ""
@@ -128,7 +127,7 @@ def get_last_text():
 
     deleted = (char + deleted) if char else deleted
 
-    logger.debug(f"Iteration : copied={char!r} deleted_so_far={deleted!r}")
+    logger.debug(f"Iteration: copied={char!r} deleted_so_far={deleted!r}")
 
     logger.debug(f"get_last_text returning: {char!r}")
     return char
@@ -141,10 +140,8 @@ def build_trigger_list():
 
 
 def main():
-    logger.debug("Main loop running")
-
     last_text = get_last_text()
-    logger.debug(f"last_text extracted = {last_text!r}")
+    logger.debug(f"last_text extracted: {last_text!r}")
 
     found = False
     if last_text.upper().endswith("TRIGGERLIST"):
