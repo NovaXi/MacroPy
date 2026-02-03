@@ -14,4 +14,4 @@ wheels/
 # Files
 MacroPy__Logs.txt
 abbreviations.json
-uv.lock
+*.lock
